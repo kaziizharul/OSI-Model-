@@ -15,7 +15,7 @@ Rather than a static diagram, this is a **working simulation**: it animates the 
 
 It was built as both a **networking/cybersecurity educational tool** and a **portfolio demonstration piece** for LinkedIn and GitHub.
 
-**Live Demo:** [View the interactive artifact](https://claude.ai/artifact/1rKsPzhDikm2ETQ6iwCL3E)
+**Live Demo:** [View the interactive artifact]((https://kaziizharul.github.io/PROJECT-NAME/))
 
 ---
 
