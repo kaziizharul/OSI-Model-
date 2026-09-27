@@ -1,245 +1,78 @@
-# OSI-Model-
-# "What Really Happens When You Open a Website?"
-### The OSI Model — Data, Packets & Signals in Real Life
-**A 40-Second Cinematic Networking Explainer**
+# OSI Model Project — Interactive Visualizer + Cinematic Explainer
 
-**Created by:** Kazi Izharul Islam — BSc in CSE, CCNA
-**Focus:** Cybersecurity | Networking | Continuous Learning
-**Format:** 1920×1080, 16:9, 40.0s, cinematic 3D/VFX explainer
+A two-part project exploring the OSI Model: an interactive web visualization you can click through, and a shot-by-shot script for a 40-second cinematic explainer video.
 
----
+🔗 **Live Portfolio:** [Add your GitHub Pages link here]
+🔗 **Interactive Demo:** [Add your visualizer link here]
 
-## HOW TO USE THIS DOCUMENT
+## Overview
 
-This is a shot-by-shot production script, timed to the frame-second, written so it can be:
-- Handed to a 3D/motion designer (Blender, Cinema 4D, After Effects) as a storyboard, or
-- Split into 4–5 second clips and fed into an AI video generator (Runway Gen, Pika, Luma, Sora) one beat at a time, then stitched together, since most text-to-video tools cap out well under 40s per generation.
+This project breaks down one of networking's most fundamental concepts — how a single request travels through all 7 OSI layers — using two different mediums: a hands-on interactive tool, and a narrative video script designed for a general audience.
 
-Each beat includes: **Visual**, **Camera**, **On-screen text**, **VFX/Motion notes**, **SFX**, and **Narration**.
+## Part 1 — Interactive OSI Model Visualizer
 
----
+A self-contained HTML/CSS/JS web app demonstrating:
+- Animated packet journey: Smartphone → Wi-Fi Router → ISP → Internet → Web Server → back
+- 7 clickable OSI layers, each with responsibility, protocols, data unit, and a real-world example
+- Live encapsulation/decapsulation view showing headers being added and stripped
+- Playback controls (Play, Pause, Reset, Next/Previous Layer)
 
-## 00:00 – 00:04 — THE QUESTION
+**Tech:** HTML5, CSS3, vanilla JavaScript — no dependencies, runs in any browser.
 
-**Visual:** A realistic smartphone rests on a desk in a modern, softly lit room (cool blue key light, shallow depth of field). A hand types `https://www.facebook.com` into a browser and taps Enter.
+## Part 2 — "What Really Happens When You Open a Website?"
 
-**Camera:** Slow dolly-in from a wide room shot to a tight macro shot of the screen, settling on the glowing cursor.
+A 40-second cinematic 3D/VFX explainer script (storyboard format), written shot-by-shot for production in Blender/Cinema 4D/After Effects or AI video tools (Runway, Pika, Luma, Sora).
 
-**On-screen text:** `What happens after you press ENTER?` (fades in, thin modern sans-serif, bottom third)
+**Status:** Script complete — production in progress.
 
-**VFX:** As Enter is pressed, the screen pulses once with a soft white flash. A single glowing blue particle detaches from the screen surface and hovers — this is our "hero packet" for the rest of the video.
+Covers the same journey as Part 1, but as a visual narrative:
+1. **00:00–00:04** — The Question (a keystroke births the "hero packet")
+2. **00:04–00:08** — Application Layer (HTTPS request created)
+3. **00:08–00:13** — Encapsulation (TCP → IP → Ethernet shells lock on)
+4. **00:13–00:18** — Physical Transmission (Wi-Fi, Ethernet, fiber — three distinct signal types)
+5. **00:18–00:24** — Routing the Internet (IP addressing across network hops)
+6. **00:24–00:28** — TCP Handshake (SYN → SYN-ACK → ACK)
+7. **00:28–00:32** — Decapsulation (reverse of step 3, at the destination server)
+8. **00:32–00:36** — The Response (return trip, visually distinct color trail)
+9. **00:36–00:40** — Final Reveal (full journey shown as one arc)
 
-**SFX:** Keyboard tap → Enter key click → soft low synth swell begins.
+## OSI Layer Reference
 
-**Narration:** *"You press Enter."*
+| Layer | Name | What's Shown | Data Unit |
+|---|---|---|---|
+| 7 | Application | Browser / HTTP / HTTPS | Data |
+| 6 | Presentation | Encryption concept, compression, formatting | Data |
+| 5 | Session | Session setup/teardown | Data |
+| 4 | Transport | TCP/UDP, ports, segmentation | Segment/Datagram |
+| 3 | Network | IP addressing and routing | Packet |
+| 2 | Data Link | MAC addresses, Ethernet/Wi-Fi frames | Frame |
+| 1 | Physical | Bits as electrical, radio, or optical signals | Bits |
 
----
+**Technical accuracy notes:**
+- MAC addresses are local-network only and change at every hop — unlike IP addresses, which persist logically across the full journey.
+- Port 443/TCP is used as the canonical HTTPS example (HTTP/3 over QUIC/UDP is a known exception, noted but not depicted, to keep the script focused).
+- OSI is a conceptual reference model; modern Internet protocols are more commonly described using the TCP/IP model.
 
-## 00:04 – 00:08 — APPLICATION LAYER
+## How to Run the Visualizer Locally
 
-**Visual:** Camera pushes *through* the phone screen into a stylized digital interior — glowing circuit-like environment representing the OS/browser.
-
-**On-screen text:**
-- `Application Layer — HTTP/HTTPS`
-- `GET /` (typewriter effect, monospace font)
-
-**VFX:** The browser process renders as a glowing translucent cube of light labeled "HTTPS Request." It begins sinking downward into a faintly visible vertical stack of seven translucent horizontal planes (the OSI stack), each one dimly lit until the data reaches it.
-
-**SFX:** Soft digital "materialize" chime.
-
-**Narration:** *"Your browser creates a request."*
-
----
-
-## 00:08 – 00:13 — ENCAPSULATION (Layer-by-layer wrap)
-
-**Visual:** The signature "wrapping" sequence. The glowing data cube falls through each OSI plane and gains a new visible shell/wrapper at each layer, like nested armor plating locking into place.
-
-**Sequence (fast cuts, ~1s each):**
-1. `APPLICATION DATA` — raw glowing core
-2. `+ TCP SEGMENT` — a translucent shell locks around it (port numbers flicker briefly: 54321 → 443)
-3. `+ IP PACKET` — a second shell locks on (source/destination IP flicker briefly)
-4. `+ ETHERNET / WI-FI FRAME` — outer shell locks on (MAC address flickers briefly)
-5. `BITS` — the whole object dissolves into a stream of pulsing binary light (1010110...)
-
-**On-screen label:** `ENCAPSULATION` (appears once, top of frame, stays through the sequence)
-
-**Camera:** Locked-off macro shot, slow rotation around the object as each shell locks in — this is a hero close-up moment.
-
-**VFX:** Each shell-lock has a satisfying mechanical "snap" + light flare, like a camera aperture closing.
-
-**SFX:** Four rising "lock" clicks, increasing in pitch, then a final "shatter-into-bits" digital shimmer.
-
-**Narration:** *"The data is encapsulated —"*
-
----
-
-## 00:13 – 00:18 — PHYSICAL TRANSMISSION
-
-**Visual:** The bit-stream launches from the phone as a fan of rapid radio waves (concentric translucent blue arcs, NOT lightning/electric bolts) toward a Wi-Fi router across the room.
-
-Camera then whip-cuts into an Ethernet cable's cross-section, revealing glowing pulses of light racing through copper wire, then briefly into a fiber-optic strand with a pulse of white/orange light travelling at exaggerated speed.
-
-**On-screen text:**
-- `Bits are transmitted as physical signals.`
-- Quick labels, left to right: `Wi-Fi` → `Ethernet` → `Fiber`
-
-**VFX:** Three distinct signal styles, clearly differentiated:
-- Wi-Fi = radio wave arcs (electromagnetic, through air)
-- Ethernet = pulsing light inside copper cable (electrical signal)
-- Fiber = fast white-orange light pulse inside glass strand (optical signal)
-
-**SFX:** Wi-Fi pulse "ping," router switching click, data-stream whoosh.
-
-**Narration:** *"— transmitted as signals —"*
-
----
-
-## 00:18 – 00:24 — ROUTING THROUGH THE INTERNET
-
-**Visual:** Camera pulls back into a wide, cinematic 3D network topology shot: **Phone → Home Router → ISP → Internet Backbone → Multiple Routers → Destination Network.** Dozens of small glowing packets travel simultaneously along glowing pathways, making the internet feel alive and busy — our hero packet is tagged with a brighter trail so it's easy to follow.
-
-**Camera:** Sweeping aerial/orbit shot over a stylized glowing map of nodes and connections (think abstract, not literal Google Maps).
-
-**At each router hop:** a brief HUD-style readout flickers:
-`Destination IP: 157.240.x.x`
-
-**On-screen text:** `IP = logical addressing + routing`
-
-**VFX:** Each router briefly highlights on packet arrival, then sends it onward along the best path — visualize as a quick pathfinding light-trace, not teleportation.
-
-**SFX:** Layered whooshes, distant router clicks, subtle network "hum" bed.
-
-**Narration:** *"— routed across networks —"*
-
----
-
-## 00:24 – 00:28 — TCP + PORT
-
-**Visual:** Hard cut to extreme close-up on the hero packet. A clean HUD overlay appears beside it.
-
-**On-screen text:**
-```
-Source Port: 54321
-Destination Port: 443
-Protocol: TCP
+```bash
+git clone https://github.com/your-username/osi-model-project.git
+cd osi-model-project
 ```
 
-**VFX:** Quick 3-beat handshake animation — three small light-pulses bounce between two nodes labeled `SYN → SYN-ACK → ACK`, connecting with a visible "link established" glow.
+Open `index.html` in any browser — no server or build step required.
 
-**On-screen text:** `TCP provides reliable transport.`
+## Motivation
 
-**SFX:** Three crisp "handshake" blips, then a confirming chime.
+Built to strengthen core networking fundamentals — encapsulation, addressing, and transport-layer behavior — while working on cybersecurity, SOC automation, and network security projects.
 
-**Narration:** *"— using reliable transport —"*
+## Author
 
----
+**Kazi Izharul Islam**
+B.Sc. in Computer Science & Engineering | CCNA
+Cybersecurity · Networking · Continuous Learning
+[LinkedIn](#) · [GitHub](#)
 
-## 00:28 – 00:32 — DESTINATION SERVER (Decapsulation)
+## License
 
-**Visual:** The packet arrives at a realistic, moodily-lit server room — rows of racks, status LEDs blinking, subtle fans. The incoming light-trail enters a specific server unit and the camera pushes into it.
-
-**Sequence — reverse of encapsulation (fast cuts):**
-1. `BITS` → reassembles into a frame
-2. `FRAME` → shell unlocks, reveals
-3. `IP PACKET` → shell unlocks, reveals
-4. `TCP SEGMENT` → shell unlocks, reveals
-5. `APPLICATION DATA` → the original glowing core, now at the server
-
-**On-screen label:** `DECAPSULATION`
-
-**VFX:** Mirror the encapsulation shot exactly (same camera language, reversed), so viewers instinctively recognize it as the "undo."
-
-**SFX:** Reverse of the lock-clicks — four descending "unlock" sounds, server processing hum/beep.
-
-**Narration:** *"— processed by the destination server —"*
-
----
-
-## 00:32 – 00:36 — THE RESPONSE
-
-**Visual:** The server sends a new stream back the way it came: **Server → Internet → ISP → Router → Phone.** Use a visually distinct color/pulse (e.g., warm amber/green trail vs. the original cool blue) so viewers instantly read this as "coming back," not "going out again."
-
-**Camera:** Fast reverse-sweep over the same topology shot from 00:18–00:24, now travelling right-to-left (or inward toward camera) to subconsciously signal "return trip."
-
-**SFX:** Data-stream whoosh (higher pitch than outbound), soft rising synth swell.
-
-**Narration:** *"— and sent back."*
-
----
-
-## 00:36 – 00:40 — FINAL REVEAL
-
-**Visual:** Camera returns to the smartphone. The webpage finishes loading smoothly and naturally (facebook.com feed populates). Then camera pulls back and up, revealing the entire journey as a single glowing arc across the topology:
-
-`PHONE → ROUTER → ISP → INTERNET → SERVER → BACK TO PHONE`
-
-**On-screen text (sequential fade):**
-- `"Every click is a journey through the network."`
-- **`Kazi Izharul Islam`**
-  `BSc in CSE | CCNA`
-  `Cybersecurity | Networking | Continuous Learning`
-- `#Cybersecurity #Networking #OSIModel #NetworkSecurity #Learning`
-
-**SFX:** Page-load "pop," music resolves to a clean final chord.
-
-**Narration:** *"What looks like one click is actually a journey through multiple layers of networking."*
-
----
-
-## FULL NARRATION (VOICEOVER SCRIPT — ~15s spoken, room to breathe against 40s of visuals)
-
-> "You press Enter. Your browser creates a request. The data is encapsulated, transmitted as signals, routed across networks, processed by the destination server, and sent back. What looks like one click is actually a journey through multiple layers of networking."
-
-Deliver in a calm, confident, documentary tone — pause slightly after "encapsulated," "signals," and "routed across networks" to let each visual beat land.
-
----
-
-## OSI LAYER REFERENCE (for on-screen accuracy / lower-third if needed)
-
-| Layer | Name | What's shown |
-|---|---|---|
-| 7 | Application | Browser / HTTP / HTTPS |
-| 6 | Presentation | Data formatting, encryption concept, compression |
-| 5 | Session | Session setup/teardown concept |
-| 4 | Transport | TCP/UDP, ports, segmentation, reliability |
-| 3 | Network | IP addressing and routing |
-| 2 | Data Link | MAC addresses, Ethernet/Wi-Fi frames, local delivery |
-| 1 | Physical | Bits as electrical, radio, or optical signals |
-
-**Technical accuracy notes baked into this script:**
-- MAC addresses are shown flickering only at the Layer 2 wrap stage and are **not** carried end-to-end — they change at every hop, unlike the IP address.
-- IP addressing is explicitly framed as the logical/routing mechanism that *does* persist across the journey.
-- Port 443/TCP is used as the canonical HTTPS example; script avoids claiming all HTTPS is TCP (HTTP/3 over QUIC/UDP is a known exception, not shown to keep pacing clean — can be added as a one-line footnote in a longer cut).
-- TLS/encryption is treated as a real-world security mechanism layered near the application/transport boundary, not as a literal standalone "Presentation Layer" box.
-- Wi-Fi is shown as radio-wave/electromagnetic transmission — never as visible electricity arcing through air.
-- Multiple simultaneous packets and varied physical media (copper, fiber, radio) are shown so the internet doesn't read as one single pipe.
-
----
-
-## PRODUCTION / SOUND DESIGN CHECKLIST
-
-- [ ] Cinematic electronic background bed (subtle, builds through encapsulation, resolves at final reveal)
-- [ ] Keyboard tap + Enter key
-- [ ] Digital "materialize" / packet transmission chime
-- [ ] 4x rising "lock" clicks (encapsulation)
-- [ ] Wi-Fi radio pulse ping
-- [ ] Router switching click(s)
-- [ ] Data-stream whoosh (outbound, cooler tone)
-- [ ] TCP handshake blips ×3 + confirm chime
-- [ ] Server processing hum/beep
-- [ ] 4x descending "unlock" clicks (decapsulation)
-- [ ] Data-stream whoosh (return trip, warmer/higher tone)
-- [ ] Page-load pop + final resolving chord
-
----
-
-## CREATOR CREDIT BLOCK (for final frame)
-
-```
-Kazi Izharul Islam
-BSc in Computer Science & Engineering | CCNA
-Cybersecurity | Networking | Continuous Learning
-
-#Cybersecurity #Networking #OSIModel #NetworkSecurity #Learning
-```
+Open for educational use. Feel free to fork, learn from, and adapt it.
