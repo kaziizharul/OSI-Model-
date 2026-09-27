@@ -116,7 +116,7 @@ Firewalls, IDS/IPS, and SIEM rules are frequently described by *which layer they
 ## Usage
 
 1. Clone or download this repository
-2. Open `osi-model.html` in any modern browser — or view the [live hosted version](https://claude.ai/artifact/1rKsPzhDikm2ETQ6iwCL3E)
+2. Open `osi-model.html` in any modern browser — or view the [live hosted version](https://github.com/user-attachments/files/32709521/osi-cinematic-video.html)
 3. Click **▶ Play** to watch the automatic packet journey, or manually click through Layers 7→1 to explore each one
 4. Toggle **LinkedIn Presentation Mode** for a simplified view suited to screen recording
 
